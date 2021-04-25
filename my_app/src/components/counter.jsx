@@ -6,15 +6,26 @@ class Counter extends Component {
         count: 0,
     };
 
-    handleIncrement() {
-        console.log("Increment Clicked");
+    // constructor() {
+    //     super();
+    //     this.handleIncrement = this.handleIncrement.bind(this);
+    // }
+
+    handleIncrement = (product) => {
+        console.log(product);
+        this.setState({count: this.state.count + 1});
     }
+
+    evenHandle = () => {
+        this.handleIncrement({id: 1})
+    }
+
 
     render() {
         return (
             <div className="mt-4">
                 <span className={this.getBadgeClasses()}>{this.formmatCount()}</span>
-                <button onClick={this.handleIncrement} className="btn-secondary btn-sm">Increment</button>
+                <button onClick={ this.evenHandle} className="btn-secondary btn-sm">Increment</button>
             </div>
         );
     }
